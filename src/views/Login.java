@@ -107,11 +107,10 @@ public class Login extends javax.swing.JFrame {
                         "Nombre de usuario / clave incorrecto(s)", 
                         "Error de acceso", 
                         JOptionPane.ERROR_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, 
-                        "Acceso concedido", 
-                        "Exito", 
-                        JOptionPane.INFORMATION_MESSAGE);
+            } else {                
+                MDIPrincipal m = new MDIPrincipal();
+                m.setVisible(true);
+                this.dispose();
             }
             
         }
