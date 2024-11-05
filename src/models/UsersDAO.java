@@ -52,7 +52,7 @@ public class UsersDAO {
                         rs.getInt("id"),
                         rs.getString("nickname"),
                         rs.getString("secret"),
-                        Boolean.parseBoolean(rs.getString("active"))
+                        rs.getString("active").equals("1")
                 );
                 //Añadimos el objeto al ArrayList
                 users.add(u);
@@ -82,7 +82,7 @@ public class UsersDAO {
                         rs.getInt("id"),
                         rs.getString("nickname"),
                         rs.getString("secret"),
-                        Boolean.parseBoolean(rs.getString("active"))
+                        rs.getString("active").equals("1")
                 );
                 
             }
@@ -107,7 +107,7 @@ public class UsersDAO {
                         rs.getInt("id"),
                         rs.getString("nickname"),
                         rs.getString("secret"),
-                        Boolean.parseBoolean(rs.getString("active"))
+                        rs.getString("active").equals("1")
                 );
                 return u;            
             } else {

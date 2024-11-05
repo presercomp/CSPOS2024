@@ -29,19 +29,19 @@ public class MDIPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        miProductAdmin = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        meApplication = new javax.swing.JMenu();
+        miCloseSession = new javax.swing.JMenuItem();
+        miSeparatorApp = new javax.swing.JPopupMenu.Separator();
+        miExitApp = new javax.swing.JMenuItem();
+        mePrices = new javax.swing.JMenu();
+        miPricesAdmin = new javax.swing.JMenuItem();
+        miPricesAdd = new javax.swing.JMenuItem();
+        meProducts = new javax.swing.JMenu();
+        miProductsAdmin = new javax.swing.JMenuItem();
+        miProductsAdd = new javax.swing.JMenuItem();
+        meUsers = new javax.swing.JMenu();
+        miUsersAdmin = new javax.swing.JMenuItem();
+        miUsersAdd = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -58,51 +58,66 @@ public class MDIPrincipal extends javax.swing.JFrame {
             .addGap(0, 277, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Aplicación");
+        meApplication.setText("Aplicación");
 
-        jMenuItem3.setText("Cerrar Sesión");
-        jMenu1.add(jMenuItem3);
-        jMenu1.add(jSeparator1);
-
-        jMenuItem1.setText("Salir");
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu4.setText("Precios");
-
-        jMenuItem4.setText("Administrar");
-        jMenu4.add(jMenuItem4);
-
-        jMenuItem5.setText("Agregar");
-        jMenu4.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu2.setText("Productos");
-
-        miProductAdmin.setText("Administrar");
-        miProductAdmin.addActionListener(new java.awt.event.ActionListener() {
+        miCloseSession.setText("Cerrar Sesión");
+        miCloseSession.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miProductAdminActionPerformed(evt);
+                miCloseSessionActionPerformed(evt);
             }
         });
-        jMenu2.add(miProductAdmin);
+        meApplication.add(miCloseSession);
+        meApplication.add(miSeparatorApp);
 
-        jMenuItem7.setText("Agregar");
-        jMenu2.add(jMenuItem7);
+        miExitApp.setText("Salir");
+        miExitApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miExitAppActionPerformed(evt);
+            }
+        });
+        meApplication.add(miExitApp);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(meApplication);
 
-        jMenu3.setText("Usuarios");
+        mePrices.setText("Precios");
 
-        jMenuItem8.setText("Administrar");
-        jMenu3.add(jMenuItem8);
+        miPricesAdmin.setText("Administrar");
+        mePrices.add(miPricesAdmin);
 
-        jMenuItem9.setText("Agregar");
-        jMenu3.add(jMenuItem9);
+        miPricesAdd.setText("Agregar");
+        mePrices.add(miPricesAdd);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(mePrices);
+
+        meProducts.setText("Productos");
+
+        miProductsAdmin.setText("Administrar");
+        miProductsAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miProductsAdminActionPerformed(evt);
+            }
+        });
+        meProducts.add(miProductsAdmin);
+
+        miProductsAdd.setText("Agregar");
+        miProductsAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miProductsAddActionPerformed(evt);
+            }
+        });
+        meProducts.add(miProductsAdd);
+
+        jMenuBar1.add(meProducts);
+
+        meUsers.setText("Usuarios");
+
+        miUsersAdmin.setText("Administrar");
+        meUsers.add(miUsersAdmin);
+
+        miUsersAdd.setText("Agregar");
+        meUsers.add(miUsersAdd);
+
+        jMenuBar1.add(meUsers);
 
         setJMenuBar(jMenuBar1);
 
@@ -120,11 +135,27 @@ public class MDIPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void miProductAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProductAdminActionPerformed
+    private void miProductsAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProductsAdminActionPerformed
         ProductsAdmin pa = new ProductsAdmin();
         this.desktopPane.add(pa);
         pa.setVisible(true);
-    }//GEN-LAST:event_miProductAdminActionPerformed
+    }//GEN-LAST:event_miProductsAdminActionPerformed
+
+    private void miCloseSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCloseSessionActionPerformed
+        Login l = new Login();
+        l.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_miCloseSessionActionPerformed
+
+    private void miExitAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miExitAppActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_miExitAppActionPerformed
+
+    private void miProductsAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProductsAddActionPerformed
+        ProductsAdd pa = new ProductsAdd();
+        this.desktopPane.add(pa);
+        pa.setVisible(true);
+    }//GEN-LAST:event_miProductsAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,20 +194,20 @@ public class MDIPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JMenuItem miProductAdmin;
+    private javax.swing.JMenu meApplication;
+    private javax.swing.JMenu mePrices;
+    private javax.swing.JMenu meProducts;
+    private javax.swing.JMenu meUsers;
+    private javax.swing.JMenuItem miCloseSession;
+    private javax.swing.JMenuItem miExitApp;
+    private javax.swing.JMenuItem miPricesAdd;
+    private javax.swing.JMenuItem miPricesAdmin;
+    private javax.swing.JMenuItem miProductsAdd;
+    private javax.swing.JMenuItem miProductsAdmin;
+    private javax.swing.JPopupMenu.Separator miSeparatorApp;
+    private javax.swing.JMenuItem miUsersAdd;
+    private javax.swing.JMenuItem miUsersAdmin;
     // End of variables declaration//GEN-END:variables
 }

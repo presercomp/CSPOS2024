@@ -12,14 +12,15 @@ public class ProductsDAO {
     public boolean create(Products p){
         //Creamos la consulta de insercion con preparedStatements
         //para evitar posibles injecciones de SQL
-        String sql = "INSERT INTO products (name) VALUES (?)";
+        String sql = "INSERT INTO products (id, name) VALUES (?, ?)";
         try {
             //Nos conectamos a la base de datos
             Connection conn = DB.getConnection();
             //Procesamos la consulta
             PreparedStatement stmt = conn.prepareStatement(sql);
             //Definimos los valores para los dos parametros con ? en la consulta
-            stmt.setString(1, p.getName());            
+            stmt.setInt(1, p.getId());            
+            stmt.setString(2, p.getName());            
             //Ejecutamos la consulta y obtenemos los resultados
             int results = stmt.executeUpdate();
             //Si el resultado es mayor que cero, es que fue un exito
@@ -50,7 +51,7 @@ public class ProductsDAO {
                 Products p = new Products(
                         rs.getInt("id"),
                         rs.getString("name"),                        
-                        Boolean.parseBoolean(rs.getString("active"))
+                        rs.getString("active").equals("1")
                 );
                 //Añadimos el objeto al ArrayList
                 products.add(p);
@@ -80,7 +81,7 @@ public class ProductsDAO {
                 p = new Products(
                         rs.getInt("id"),
                         rs.getString("name"),                        
-                        Boolean.parseBoolean(rs.getString("active"))
+                        rs.getString("active").equals("1")
                 );
                 
             }
@@ -105,7 +106,7 @@ public class ProductsDAO {
                 Products u = new Products(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        Boolean.parseBoolean(rs.getString("active"))
+                        rs.getString("active").equals("1")
                 );
                 return u;            
             } else {
